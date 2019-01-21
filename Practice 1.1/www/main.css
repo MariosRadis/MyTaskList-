@@ -1,0 +1,31 @@
+.navbar{
+    height:100px;
+}
+.navbar-nav{
+    font-size: 20px;
+    
+}
+
+#nav-list-home{
+    color:orange;
+  
+}
+#nav-list-link{
+    color:orange;
+}
+#nav-list-dropdown{
+    color:orange;
+}
+#nav-list-disabled{
+    color: orange;
+right: 100px;
+}
+#footer {
+    bottom: -100px;
+    position: absolute;
+    height: 60px;
+    width: 100%;
+}
+#navbarul {
+    width:100%;
+}

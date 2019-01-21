@@ -1,0 +1,31 @@
+﻿@model Practice_1._1.Models.LoginVM 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row col-md-3">
+        <h1>Login!!</h1>
+        <form method="post" actions="@Url.Action("Login","Auth")">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input class="form-control" id="Username" name="Username" aria-describedby="emailHelp" placeholder="Username" /> @*In order for the login contoller to match the input parameters the name attribute must be the same with the property's(not case sensitive) name inside the class*@
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                @Html.ValidationMessageFor(i => i.Username, null, new { @class = "Text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                @Html.ValidationMessageFor(i=>i.Password, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group form-check">
+                <input name="RememberMe" type="checkbox" class="form-check-input" id="RememberMe" value="True"> @*Here we also need to set the value property to true in order to match the model (What???)*@
+                <label class="form-check-label" for="RememberMe">Remember me</label>
+                @Html.ValidationMessageFor(i => i.RememberMe)
+            </div>
+            <div class="text-danger">@ViewBag.WrongUsernameOrPassword</div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-primary" onclick="@("window.location.href='"+Url.Action("Index","Home")+"'")">Cancel</button>
+        </form>
+    </div>
+</div>

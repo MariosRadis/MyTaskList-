@@ -1,0 +1,37 @@
+﻿@model  Practice_1._1.Models.RegisterVM
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row col-md-3">
+        <h1>Register!!</h1>
+        <form method="post" actions="@Url.Action("Register","Auth")">
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <div class="text-danger">@ViewBag.MessageUserAllreadyExists</div>
+                <input name="Username" class="form-control" id="Username" placeholder="Username">
+                @Html.ValidationMessageFor(i => i.Username, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                @Html.ValidationMessageFor(i => i.Email, null, new { @class = "text-danger" })
+                <small name="email" id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input name="Password" type="password" class="form-control" id="Password" placeholder="Password">
+                @Html.ValidationMessageFor(i => i.Password, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="ConfirmPassword">Confirm Password</label>
+                <input name="ConfirmPassword" type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
+                @Html.ValidationMessageFor(i => i.ConfirmPassword, null, new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="button" class="btn btn-primary" onclick="@("window.location.href='"+Url.Action("Index","Home")+"'")">Cancel</button>
+        </form>
+    </div>
+</div>

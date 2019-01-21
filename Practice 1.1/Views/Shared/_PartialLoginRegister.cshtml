@@ -1,0 +1,18 @@
+﻿@if (User.Identity.IsAuthenticated)
+{  
+    <li class="nav-item ml-auto text-nowrap">
+        <a  style="color:orange" class="nav-link ">Hello @User.Identity.Name.ToString()!</a>
+    </li>
+    <li class="nav-item">
+        <a id="nav-list-disabled" class="nav-link " href="@Url.Action("Logout","Auth")">Logout</a>
+    </li>
+}
+else
+{
+    <li class="nav-item ml-auto text-nowrap">
+        <a id="nav-list-disabled" class="nav-link " href="@Url.Action("Login","Auth")">Login</a>
+    </li>
+    <li class="nav-item ">
+        <a id="nav-list-disabled" class="nav-link " href="@Url.Action("Register","Auth")">Register</a>
+    </li>
+}
