@@ -63,14 +63,65 @@ namespace Practice_1._1.Controllers
         }
 
         /////////////**** COMPLETE A TASK ****\\\\\\\\\\\\\
-        public 
+        public ActionResult TaskComplete(int id)
+        {
+            Task task;
+            using (AppContext db = new AppContext())
+            {
+                task = db.Tasks.Find(id);
+                task.Completed = true;
+                db.SaveChanges();
+
+            }
+                return RedirectToAction("AllTasks","Home");
+        }
 
         /////////////**** EDIT A TASK ****\\\\\\\\\\\\\
-        
+        public ActionResult TaskEdit(int id)
+        {
+            Task TaskToEdit;
+            using (AppContext db = new AppContext())
+            {
+                TaskToEdit = db.Tasks.Find(id);   
+            }
+                return View(TaskToEdit);
+        }
+
+        [HttpPost]
+        public ActionResult TaskEdit(Task task)
+        {
+             using (AppContext db = new AppContext())
+            {
+                Task editedTask = new Task();
+                if (!ModelState.IsValid)
+                {
+                    return View(task);
+                }
+                else
+                {
+                    editedTask = db.Tasks.Find(task.Id);
+                    editedTask.Title = task.Title;
+                    editedTask.Description = task.Description;
+                    editedTask.DueDate = task.DueDate;
+                    db.SaveChanges();
+                    return RedirectToAction("AllTasks", "Home");
+                }
+            }
+        }
 
 
         /////////////**** DELETE A TASK ****\\\\\\\\\\\\\
-
+        public ActionResult TaskDelete(int id)
+        {
+            Task TaskToDelete;
+            using (AppContext db = new AppContext())
+            {
+                TaskToDelete = db.Tasks.Find(id);
+                db.Tasks.Remove(TaskToDelete);
+                db.SaveChanges();
+            }
+            return RedirectToAction("AllTasks","Home");
+        }
 
 
 

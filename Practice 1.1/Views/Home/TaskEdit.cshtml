@@ -1,0 +1,32 @@
+﻿@model Practice_1._1.Models.Task
+@{
+    ViewBag.Title = "TaskEdit";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row col-md-3">
+        <h1>EditTask!!</h1>
+        <form action="@Url.Action("TaskEdit","Home")" method="post">
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input class="form-control" name="Title" id="Title" placeholder="Task title" value="@Model.Title"  />
+                @Html.ValidationMessageFor(i => i.Title, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <input class="form-control" name="Description" id="Description" placeholder="Description" value="@Model.Description" />
+                @Html.ValidationMessageFor(i => i.Description, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="DueDate">DueDate</label>
+                <input class="form-control" type="date" name="DueDate" id="DueDate" placeholder="DueDate" value="@Model.DueDate" />
+                @Html.ValidationMessageFor(i => i.DueDate, null, new { @class = "text-danger" })
+            </div>
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="button" class="btn btn-primary" onclick="@("window.location.href='"+Url.Action("AllTasks","Home")+"'")">Edit</button>
+        </form>
+    </div>
+</div>

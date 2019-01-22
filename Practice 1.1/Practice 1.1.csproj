@@ -213,6 +213,7 @@
     <Content Include="Views\Shared\_PartialLoginRegister.cshtml" />
     <Content Include="Views\Home\AllTasks.cshtml" />
     <Content Include="Views\Home\CreateTask.cshtml" />
+    <Content Include="Views\Home\TaskEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901181408245_init.resx">
