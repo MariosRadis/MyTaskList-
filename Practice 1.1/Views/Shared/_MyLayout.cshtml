@@ -34,10 +34,10 @@
                         <a id="nav-list-home" class="nav-link navigation-list-items" href="@Url.Action("Index","Home")">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav-list-link" class="nav-link" href="#">Link</a>
+                        <a id="nav-list-link" class="nav-link" href="@Url.Action("AllTasks","Home")">AllTasks</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="nav-list-dropdown" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a id="nav-list-dropdown" class="nav-link dropdown-toggle" href="#"  role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
                         </a>
@@ -62,7 +62,7 @@
     </header>
     <main>
         <!-- here goes the main content -->
-        @RenderBody();
+        @RenderBody()
     </main>
     <footer id="footer" class="footer bg-dark">
         <div class="container">

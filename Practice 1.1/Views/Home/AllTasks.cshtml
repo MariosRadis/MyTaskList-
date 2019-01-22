@@ -1,0 +1,52 @@
+﻿@model  List<Practice_1._1.Models.Task>
+
+@{
+    ViewBag.Title = "AllTasks";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>AllTasks!!</h2>
+
+
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="5">
+                    <a href="@Url.Action("CreateTask","Home")">Create new task</a>
+                </th>
+            </tr>
+            <tr >
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due date</th>
+                <th>Completed</th>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-active text-center">
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.DueDate</td>
+                    <td>@item.Completed</td>
+                    <td>
+                        <a href="@Url.Action("Edit","Home")?id=@(item.Id)">Edit</a> |
+                        @*<a href="@Url.Action("Delete","Home")?id=@(item.Id)">Delete</a> |*@
+                        <a href="javascript:loadTask(@item.Id)">Delete</a> |
+
+                        @if (item.Completed == false)
+                        {
+                            <a href="@Url.Action("Complete", "Home")?id=@item.Id">Complete</a>
+                        }
+                        else{
+                            <span  class="disabled">Completed</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

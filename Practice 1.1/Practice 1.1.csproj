@@ -156,6 +156,10 @@
     <Compile Include="Migrations\201901200855400_init3.Designer.cs">
       <DependentUpon>201901200855400_init3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901221644040_init1.cs" />
+    <Compile Include="Migrations\201901221644040_init1.Designer.cs">
+      <DependentUpon>201901221644040_init1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginVM.cs" />
     <Compile Include="Models\RegisterVM.cs" />
@@ -207,6 +211,8 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Shared\_PartialLoginRegister.cshtml" />
+    <Content Include="Views\Home\AllTasks.cshtml" />
+    <Content Include="Views\Home\CreateTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901181408245_init.resx">
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901200855400_init3.resx">
       <DependentUpon>201901200855400_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901221644040_init1.resx">
+      <DependentUpon>201901221644040_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
